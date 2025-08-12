@@ -1,0 +1,97 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: grid;
+  place-content: center;
+  min-block-size: 100vh;
+  overflow-x: clip;
+  background: linear-gradient(45deg, hsl(203 7 89), hsl(198 13 71));
+}
+
+.card-stack {
+  width: 16rem;
+  height: 22rem;
+  position: relative;
+  display: grid;
+  grid-auto-flow: column;
+  place-content: center;
+  user-select: none;
+  touch-action: none;
+  transform-style: preserve-3d;
+}
+
+:root {
+  --card-perspective: 700px;
+  --card-z-offset: 12px;
+  --card-y-offset: 7px;
+  --card-max-z-index: 100;
+  --card-swap-duration: 0.3s;
+  --swipe-x: 0px;
+  --swipe-rotate: 0deg;
+}
+
+.card {
+  cursor: grab;
+  background-color: #eee;
+  display: grid;
+  place-content: center;
+  place-self: center;
+  position: absolute;
+  width: calc(100% - 2rem);
+  height: calc(100% - 2rem);
+  border: 1px solid #99a;
+  border-radius: 0.75rem;
+  z-index: calc(var(--card-max-z-index) - var(--i));
+  transform: perspective(var(--card-perspective)) translateZ(calc(-1 * var(--card-z-offset) * var(--i))) translateY(calc(var(--card-y-offset) * var(--i))) translateX(var(--swipe-x, 0px)) rotateY(var(--swipe-rotate, 0deg));
+  transition: transform var(--card-swap-duration) ease;
+  will-change: transform;
+  box-shadow: 0 2px 2px #0003;
+}
+
+.icon {
+  aspect-ratio: 1;
+  block-size: 6em;
+  place-self: center;
+
+  svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+    fill: #fff;
+    filter: drop-shadow(0px 2px 3px #0007);
+  }
+}
+
+.card:active {
+  cursor: grabbing;
+}
+
+.a {
+  background: linear-gradient(45deg, #32de84, #deb);
+}
+
+.b {
+  background: linear-gradient(45deg, #cf8bf3, #fdb99b);
+}
+
+.c {
+  background: linear-gradient(45deg, #ea52ca, #8ed5f0);
+}
+
+.d {
+  background: linear-gradient(45deg, #967edf, #89ffe3);
+}
+
+.e {
+  background: linear-gradient(45deg, #4ecde2, #faffd2);
+}
+
+.f {
+  background: linear-gradient(45deg, #a4ffbd, #ffd89b);
+}
