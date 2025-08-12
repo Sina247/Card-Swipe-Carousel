@@ -1,4 +1,4 @@
-# 💫 Card Card Swipe Carousel
+# 💫 Card Swipe Carousel
 
 A smooth and interactive **Card Swipe Carousel** built with **HTML**, **CSS** and **JavaScript**. This carousel lets users swipe left or right to navigate through cards, offering a modern, touch friendly UI ideal for showcasing products, images or profiles.
 
